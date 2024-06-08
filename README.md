@@ -1,0 +1,2 @@
+# lootcases
+LootCases
