@@ -1,0 +1,3 @@
+S_CFG = {
+    OpeningWebhook = ""
+}
