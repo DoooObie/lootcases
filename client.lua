@@ -1,8 +1,6 @@
-RegisterNetEvent('gg_lootcases:openCase', function(itemRewarded, caseItems)
-    caseOpener(itemRewarded, caseItems)
-end)
+RegisterNetEvent('gg_lootcases:openCase', caseOpener)
 
-caseOpener = function(itemRewarded, caseItems)
+local function OpenCase(itemRewarded, caseItems)
     SetNuiFocus(true, true)
     SendNUIMessage({type = "Open_caseOpener", CaseList = { Title = caseItems.Title, Color = caseItems.Color }, listItem = caseItems.Items, reward = itemRewarded.item})
 end
