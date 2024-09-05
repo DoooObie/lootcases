@@ -1,5 +1,5 @@
 CFG = {
-    ItemImgFolder = 'inventory/html/img/*',
+    ItemImgFolder = 'ox_inventory/web/images',
     RarityChance = { -- Lower is considered rarer
         ["Common"] = 80,
         ["Uncommon"] = 50,

@@ -3,13 +3,13 @@ if GetResourceState('core') ~= 'started' then return end
 ESX = exports.core:getSharedObject()
 CaseList = CFG.CaseList
 
-for k, v in pairs(CaseList) do
-    local item = k
+for key, _ in pairs(CaseList) do
+    local item = key
     ESX.RegisterUsableItem(item, function(source)
         local caseItems = CaseList[item]
         local xPlayer = ESX.GetPlayerFromId(source)
         xPlayer.removeInventoryItem(item, 1)
-        openCase(source, caseItems)
+        OpenServerCase(source, caseItems)
     end)
 end
 
@@ -21,7 +21,7 @@ end
 --     print('Added cases to ' .. xPlayer.getName() .. ' (' .. xPlayer.getIdentifier() .. ')')
 -- end)
 
-function rewardPlayer(source, item)
+function RewardServerPlayer(source, item)
     local reward = string.lower(item.item)
     local amount = item.amount
     local xPlayer = ESX.GetPlayerFromId(source)

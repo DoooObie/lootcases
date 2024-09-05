@@ -1,9 +1,22 @@
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+        -- FIVEM LOOT CASE SCRIPT --
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- 
+
+-- DISCORD.GG/WDEV
+
+
 serverSetup = false
 CaseList = CFG.CaseList
 rarityWeights = CFG.RarityChance
 caseItemsWon = {}
 
-openCase = function(serverid, caseitems)
+OpenServerCase = function(serverid, caseitems)
 
     local totalWeight = 0
 
@@ -72,9 +85,9 @@ end
 
 RegisterNetEvent('gg_lootcases:rewardPlayer', function()
     if caseItemsWon[source] then
-        rewardPlayer(source, caseItemsWon[source])
+        RewardServerPlayer(source, caseItemsWon[source])
         caseItemsWon[source] = nil
     else
-        print('gg_lootcases:rewardPlayer - No item found for source: ' .. source)
+        print(string.format('^1%s ^7may have just tried to exploit the case system', source))
     end
 end)

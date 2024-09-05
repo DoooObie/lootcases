@@ -3,11 +3,11 @@ if GetResourceState("qb-core") ~= 'started' then return end
 QBCore = exports['qb-core']:GetCoreObject()
 CaseList = CFG.CaseList 
 
-for k, v in pairs(CaseList) do
-    local item = k
+for key, _ in pairs(CaseList) do
+    local item = key
     QBCore.Functions.CreateUseableItem(item, function(source, itemData)
         local caseItems = CaseList[item]
-        openCase(source, caseItems)
+        OpenServerCase(source, caseItems)
         local Player = QBCore.Functions.GetPlayer(source)
         Player.Functions.RemoveItem(item, 1)
         if not Player.Functions.GetItemByName(item) then return end
@@ -15,7 +15,7 @@ for k, v in pairs(CaseList) do
 end
 
 
-function rewardPlayer(source, item)
+function RewardServerPlayer(source, item)
     local reward = string.lower(item.item)
     local amount = item.amount
     local player = QBCore.Functions.GetPlayer(source)
